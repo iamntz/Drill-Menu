@@ -17,7 +17,9 @@ var DrillMenu;
 
       navigationElement: 'li',
       navigationClass  : 'drill-menu-navigation',
-      navigationAnchor : 'Back'
+      navigationAnchor : 'Back',
+
+      onDrill          : $.noop
     }, this.menu.data(), options );
 
     if( this.menu.data('init') ){ return; }
@@ -65,6 +67,7 @@ var DrillMenu;
 
   DrillMenu.prototype.show = function( event ) {
     this._toggle( event, 'activate' );
+    this.options.onDrill();
     return false;
   };
 
